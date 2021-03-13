@@ -17,20 +17,21 @@
 
 function pokemonFetch() {
     var abilitytough=[]
-    var pokeAbility = []
-    for(i=1; i <=151; i++) {
+    for(i=1; i <152; i++) {
         var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/"+[i]
         fetch(pokemonAPI)
             .then(function(response) {
                 return response.json()
             })
             .then(function(data) {
-                if ((data.abilities[0].ability.name === "synchronize")||(data.abilities[1].ability.name === "synchronize")); {
-                    pokeAbility.push(data.abilities[0].ability.name)   
+                // debugger
+                if ((data?.abilities[0]?.ability?.name === "synchronize")||(data?.abilities[1]?.ability?.name === "synchronize")||(data?.abilities[2]?.ability?.name === "synchronize")) {
+                    abilitytough.push(data.name)   
                 }
-                console.log(data.name)
-                console.log(data.abilities)
-                console.log(pokeAbility)
+                // // console.log(data.abilities[0].ability.name)
+                // // console.log(data.name)
+                // console.log(data.abilities)
+                console.log(abilitytough)
                 console.log(data)
             })
     }
@@ -38,9 +39,7 @@ function pokemonFetch() {
 }
 pokemonFetch();
 
-// var thing = {[
-//     ability: "synchronize"
-// ]}
+
 
     // fetch from music api
         // fetch music

@@ -53,7 +53,9 @@
 
 
 
-// missigno easter egg code
+// *missigno easter egg code*
+// *add a pokemon music library while user is working on the quiz*
+// *if third party music api is working and running then let's challenege ourselves to incrporate spotify api*
 
 //add pokemon music library while user is working on the quiz*
 

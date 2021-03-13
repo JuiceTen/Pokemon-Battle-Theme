@@ -14,6 +14,34 @@
         // the pokemon description
         // stats
         //fetch all pokemon data
+
+function pokemonFetch() {
+    var abilitytough=[]
+    var pokeAbility = []
+    for(i=1; i <=151; i++) {
+        var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/"+[i]
+        fetch(pokemonAPI)
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(data) {
+                if ((data.abilities[0].ability.name === "synchronize")||(data.abilities[1].ability.name === "synchronize")); {
+                    pokeAbility.push(data.abilities[0].ability.name)   
+                }
+                console.log(data.name)
+                console.log(data.abilities)
+                console.log(pokeAbility)
+                console.log(data)
+            })
+    }
+    
+}
+pokemonFetch();
+
+// var thing = {[
+//     ability: "synchronize"
+// ]}
+
     // fetch from music api
         // fetch music
 

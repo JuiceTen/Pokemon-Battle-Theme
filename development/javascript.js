@@ -1,8 +1,18 @@
+var startButton = document.querySelector(".start-button")
+
+console.log(startButton)
+startButton.addEventListener("click", startGame)
+fucntion startGame () {
+    
+}
+
 // add the loading / status bar when user submits the final question
 
 
 // create a function to start the quiz
     // prevent default
+
+
 
 
 // save user inputs to local storage
@@ -14,9 +24,8 @@
         // the pokemon description
         // stats
         //fetch all pokemon data
-
+var abilityTough=[]
 function pokemonFetch() {
-    var abilitytough=[]
     for(i=1; i <152; i++) {
         var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/"+[i]
         fetch(pokemonAPI)
@@ -26,17 +35,20 @@ function pokemonFetch() {
             .then(function(data) {
                 // debugger
                 if ((data?.abilities[0]?.ability?.name === "synchronize")||(data?.abilities[1]?.ability?.name === "synchronize")||(data?.abilities[2]?.ability?.name === "synchronize")) {
-                    abilitytough.push(data.name)   
+                    abilityTough.push(data.name)   
                 }
-                // // console.log(data.abilities[0].ability.name)
+                // console.log(data?.abilities[0]?.ability?.name)
+                // console.log(data?.abilities[1]?.ability?.name)
+                // console.log(data?.abilities[2]?.ability?.name)
                 // // console.log(data.name)
                 // console.log(data.abilities)
-                console.log(abilitytough)
-                console.log(data)
+                // console.log(abilitytough)
+                // console.log(data)
             })
     }
     
 }
+console.log(abilityTough)
 pokemonFetch();
 
 

@@ -5,22 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./development/style.css">
 </head>
 <body>
-    <section id="start-screen" class = "center">
+    <section id="start-screen" class ="center">
         <h2>PokeTunes</h2>
         <p>Press the button below to find out your perfect Pokemon Team</p>
-        <button>Start</button>
+        <button class="start-button">Start</button>
     </section>    
     
-    <section>
+    <section id="quiz-screen" class="hide center">
+        <div id="first-question">
         <h3>Are you more laid back or active?</h3>
         <button>Active</button>
         <button>Laid Back</button>
+        </div>
 
         <h3>Do you prefer ballet or football?</h3>
         <button>Ballet</button>
         <button>Football</button>
+
     
         <h3>Do you like warm or cold?</h3>
         <button>Warm</button>
@@ -37,7 +41,7 @@
         <button>Drama Movies</button>
     </section>
 
-    <section id="results">
+    <section id="results" class="hide center">
         <!-- background image -->
         <h3>Your Pokemon Team</h3>
         <div>

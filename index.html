@@ -5,39 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./development/style.css">
 </head>
 <body>
-    <section id="start-screen" class = "center">
+    <section id="start-screen" class ="center">
         <h2>PokeTunes</h2>
         <p>Press the button below to find out your perfect Pokemon Team</p>
-        <button>Start</button>
+        <button class="start-button">Start</button>
     </section>    
     
-    <section>
-        <h3>Are you more laid back or active?</h3>
-        <button>Active</button>
-        <button>Laid Back</button>
+    <section id="quiz-screen" class=" center">
+        <div id="first-question">
+            <h3>Are you more laid back or active?</h3>
+            <button class="tough" onclick="pokemonRandom()">Active</button>
+            <button class="flex" onclick="pokemonRandom()">Laid Back</button>
+        </div>
 
         <h3>Do you prefer ballet or football?</h3>
-        <button>Ballet</button>
-        <button>Football</button>
+        <button class="flex" onclick="pokemonRandom()">Ballet</button>
+        <button class="tough" onclick="pokemonRandom()">Football</button>
+
     
         <h3>Do you like warm or cold?</h3>
-        <button>Warm</button>
-        <button>Cold</button>
+        <button class="beach" onclick="pokemonRandom()">Warm</button>
+        <button class="cold" onclick="pokemonRandom()">Cold</button>
 
         <h3>Do you prefer the beach, space, mountains or the clouds?</h3>
-        <button>Beach</button>
-        <button>Space</button>
-        <button>Mountains</button>
-        <button>Clouds</button>
+        <button class="beach" onclick="pokemonRandom()">Beach</button>
+        <button class="cold" onclick="pokemonRandom()">Space</button>
+        <button class="beach" onclick="pokemonRandom()">Mountains</button>
+        <button class="cold" onclick="pokemonRandom()">Clouds</button>
 
         <h3>do you prefer action movies or drama movies?</h3>
-        <button>Action moves</button>
-        <button>Drama Movies</button>
+        <button class="tough" onclick="pokemonRandom()">Action moves</button>
+        <button class="flex" onclick="pokemonRandom()">Drama Movies</button>
     </section>
 
-    <section id="results">
+    <section id="results" class=" center">
         <!-- background image -->
         <h3>Your Pokemon Team</h3>
         <div>
@@ -67,6 +71,7 @@
     </section>
 
     <footer>music player placeholder</footer>
+    <script src="./development/javascript.js"></script>
 
 </body>
 </html>

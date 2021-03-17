@@ -8,6 +8,13 @@ console.log(beachClass)
 console.log(toughClass)
 console.log(flexClass)
 
+var abilityTough=[]
+var abilityFlex=[]
+var abilityBeach=[]
+var abilityCold=[]
+var pokemonTeam = {name:[],
+}
+var uniquePokemon = []
 
 // console.log(startButton)
 // startButton.addEventListener("click", startGame)
@@ -33,12 +40,8 @@ console.log(flexClass)
         // the pokemon description
         // stats
         //fetch all pokemon data
-var abilityTough=[]
-var abilityFlex=[]
-var abilityBeach=[]
-var abilityCold=[]
-var pokemonTeam = []
-
+//TO DO
+// refactor ability sorter
 function pokemonFetch() {
     for(i=1; i <152; i++) {
         var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/"+[i]
@@ -73,29 +76,57 @@ function pokemonFetch() {
 pokemonFetch();
 
 
-function pokemonRandom() {
-    var exist = false
 
-        if (coldClass) {
-            var randomCold = Math.floor(Math.random() * abilityCold.length -1)
-            pokemonTeam.push(abilityCold[randomCold])
-        } else if (beachClass) {
-            var randomBeach = Math.floor(Math.random() * abilityBeach.length -1)
-            pokemonTeam.push(abilityCold[randomBeach])
-        } else if (toughClass) {
-            var randomTough = Math.floor(Math.random() * abilityTough.length -1)
-            pokemonTeam.push(abilityCold[randomTough])
-        } else if (flexClass) {
-            var randomFlex = Math.floor(Math.random() * abilityFlex.length -1)
-            pokemonTeam.push(abilityCold[randomFlex])
+function pokemonBeach() {
+    var randomBeach = Math.floor(Math.random() * abilityBeach.length -1)
+    pokemonTeam.name.push(abilityBeach[randomBeach])
+
+    pokemonTeam.name.forEach((c)=> {
+        if(!uniquePokemon.includes(c||undefined)) {
+            uniquePokemon.push(c)
         }
-    console.log(pokemonTeam)
+        })
+
+    // pokemonTeam.name.push(abilityBeach[randomBeach])
+    console.log(uniquePokemon)
+}
+function pokemonCold() {
+    var randomCold = Math.floor(Math.random() * abilityCold.length -1)
+    pokemonTeam.name.forEach((c)=> {
+        if(!uniquePokemon.includes(c||undefined)) {
+            uniquePokemon.push(c)
+        }
+    })
+    pokemonTeam.name.push(abilityCold[randomCold])
+    console.log(uniquePokemon)
+}
+
+function pokemonTough() {
+    var randomTough = Math.floor(Math.random() * abilityTough.length -1)
+    pokemonTeam.name.forEach((c)=> {
+        if(!uniquePokemon.includes(c||undefined)) {
+            uniquePokemon.push(c)
+        }})
+    pokemonTeam.name.push(abilityTough[randomTough])
+    console.log(uniquePokemon)
+}
+function pokemonFlex() {
+    var randomFlex = Math.floor(Math.random() * abilityFlex.length -1)
+    pokemonTeam.name.forEach((c)=> {
+        if(!uniquePokemon.includes(c||undefined)) {
+            uniquePokemon.push(c)
+        }
+    })
+    pokemonTeam.name.push(abilityFlex[randomFlex])
+    console.log(uniquePokemon)
 }
 
 
-console.log(pokemonTeam)
 
-    // fetch from music api
+
+
+
+// fetch from music api
         // fetch music
 
     // var for array of pokemon team = [151]
@@ -105,9 +136,7 @@ console.log(pokemonTeam)
     // example if (user.input === tough) {
         //return 
     // }
-    // array 2 = [space + tough/soft + warm/cod + action/drama]
-    // array 3 = [mountain + tough/soft + warm/cod + action/drama]
-    // array 4 = [cloud + tough/soft + warm/cod + action/drama]
+
 
     // var for array of music choices = [20] 
 

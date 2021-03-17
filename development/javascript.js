@@ -95,8 +95,8 @@ function pokemonRandom() {
 
 console.log(pokemonTeam)
 
-let apiKey = 'qZ11dO1PPP2buhmpsXT7xkTo807NnEmD'
-let giphyAPI = `https://api.giphy.com/v1/gifs/search?q=pokemon&api_key=${qZ11dO1PPP2buhmpsXT7xkTo807NnEmD}&limit=5`;
+var apiKey = 'qZ11dO1PPP2buhmpsXT7xkTo807NnEmD'
+var giphyAPI = 'https://api.giphy.com/v1/gifs/search?q=pokemon&api_key=' + apiKey;
 
 function getGif() {
 
@@ -111,6 +111,8 @@ function getGif() {
         
 }
 getGif();
+
+console.log(giphyAPI)
 
 
     // fetch from music api

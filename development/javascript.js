@@ -3,6 +3,11 @@ var coldClass = document.querySelectorAll(".cold")
 var beachClass = document.querySelectorAll(".beach")
 var toughClass = document.querySelectorAll(".tough")
 var flexClass = document.querySelectorAll(".flex")
+// vars for giphy fetch function
+var giphyApiKey = "tH4RZrQuamL0pNhPo7JKg8xo5vcFANzX"
+var giphyApiUrl = "https://api.giphy.com/v1/gifs/search?api_key=" + giphyApiKey + "&limit=1"
+var gifImage = document.querySelector(".moving-gif")
+var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/"
 console.log(coldClass)
 console.log(beachClass)
 console.log(toughClass)
@@ -63,8 +68,6 @@ function pokemonFetch() {
                 if ((data?.abilities[0]?.ability?.name === "damp")||(data?.abilities[1]?.ability?.name === "damp")||(data?.abilities[2]?.ability?.name === "damp")||(data?.abilities[0]?.ability?.name === "drizzle")||(data?.abilities[1]?.ability?.name === "drizzle")||(data?.abilities[2]?.ability?.name === "drizzle")||(data?.abilities[0]?.ability?.name === "ice-body")||(data?.abilities[1]?.ability?.name === "ice-body")||(data?.abilities[2]?.ability?.name === "ice-body")||(data?.abilities[0]?.ability?.name === "rain-dish")||(data?.abilities[1]?.ability?.name === "rain-dish")||(data?.abilities[2]?.ability?.name === "rain-dish")||(data?.abilities[0]?.ability?.name === "liquid-ooze")||(data?.abilities[1]?.ability?.name === "liquid-ooze")||(data?.abilities[2]?.ability?.name === "liquid-ooze")||(data?.abilities[0]?.ability?.name === "swift-swim")||(data?.abilities[1]?.ability?.name === "swift-swim")||(data?.abilities[2]?.ability?.name === "swift-swim")||(data?.abilities[0]?.ability?.name === "rain-dish")||(data?.abilities[1]?.ability?.name === "rain-dish")||(data?.abilities[2]?.ability?.name === "rain-dish")||(data?.abilities[0]?.ability?.name === "shell-armor")||(data?.abilities[1]?.ability?.name === "shell-armor")||(data?.abilities[2]?.ability?.name === "shell-armor")||(data?.abilities[0]?.ability?.name === "water-veil")||(data?.abilities[1]?.ability?.name === "water-veil")||(data?.abilities[2]?.ability?.name === "water-veil")||(data?.abilities[0]?.ability?.name === "lightning-rod")||(data?.abilities[1]?.ability?.name === "lightning-rod")||(data?.abilities[2]?.ability?.name === "lightning-rod")||(data?.abilities[0]?.ability?.name === "static")||(data?.abilities[1]?.ability?.name === "static")||(data?.abilities[2]?.ability?.name === "static")||(data?.abilities[0]?.ability?.name === "weak-armor")||(data?.abilities[1]?.ability?.name === "weak-armor")||(data?.abilities[2]?.ability?.name === "weak-armor")||(data?.abilities[0]?.ability?.name === "magnet-pull")||(data?.abilities[1]?.ability?.name === "magnet-pull")||(data?.abilities[2]?.ability?.name === "magnet-pull")||(data?.abilities[0]?.ability?.name === "water-absorb")||(data?.abilities[1]?.ability?.name === "water-absorb")||(data?.abilities[2]?.ability?.name === "water-absorb")||(data?.abilities[0]?.ability?.name === "volt-absorb")||(data?.abilities[1]?.ability?.name === "volt-absorb")||(data?.abilities[2]?.ability?.name === "volt-absorb")||(data?.abilities[0]?.ability?.name === "hydration")||(data?.abilities[1]?.ability?.name === "hydration")||(data?.abilities[2]?.ability?.name === "hydration")||(data?.abilities[0]?.ability?.name === "levitate")||(data?.abilities[1]?.ability?.name === "levitate")||(data?.abilities[2]?.ability?.name === "levitate")) {
                     abilityCold.push(data.name)   
                 }
-
-                          
             })
     }
     console.log(abilityTough)
@@ -74,6 +77,123 @@ function pokemonFetch() {
 }
 
 pokemonFetch();
+
+function getGif() {
+    
+    var firstPoke = pokemonTeam[0]
+    var giphyApiUrl = "https://api.giphy.com/v1/gifs/search?api_key=" + giphyApiKey + "&limit=1"  + "&q=" + "pokemon:" + firstPoke ;
+
+    // console.log(giphyApiUrl)
+    // console.log(pokemonTeam)
+    // console.log(pokemonTeam[0])
+    // console.log(firstPoke)
+
+    fetch(giphyApiUrl)
+        .then(function(response) {
+            return response.json()
+        }) 
+        .then(function(json) {
+            console.log(json)
+            gifImage.src = json.data[0].images.downsized.url;
+            gifImage.alt = json.data[0].title;
+            console.log(gifImage.alt)
+            console.log(gifImage.src)
+        })
+    
+}
+
+
+var firstSprite = document.querySelector(".first-poke")
+var secondSprite = document.querySelector(".second-poke")
+var thirdSprite = document.querySelector(".third-poke")
+var fourthSprite = document.querySelector(".fourth-poke")
+var fifthSprite = document.querySelector(".fifth-poke")
+var sixthSprite = document.querySelector(".sixth-poke")
+
+function getSprites() {
+
+    // TODO hide quiz
+
+    if (pokemonTeam[0]) {
+        var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + pokemonTeam[0];
+        console.log(pokemonAPI)
+        fetch(pokemonAPI)
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(json) {
+                console.log(json)
+                firstSprite.src = json.sprites.front_default
+                firstSprite.alt = json.name
+            })
+    }
+    if (pokemonTeam[1]) {
+        var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + pokemonTeam[1];
+        console.log(pokemonAPI)
+        fetch(pokemonAPI)
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(json) {
+                console.log(json)
+                secondSprite.src = json.sprites.front_default
+                secondSprite.alt = json.name
+            })
+    }
+    if (pokemonTeam[2]) {
+        var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + pokemonTeam[2];
+        console.log(pokemonAPI)
+        fetch(pokemonAPI)
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(json) {
+                console.log(json)
+                thirdSprite.src = json.sprites.front_default
+                thirdSprite.alt = json.name
+            })
+    }
+    if (pokemonTeam[3]) {
+        var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + pokemonTeam[3];
+        console.log(pokemonAPI)
+        fetch(pokemonAPI)
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(json) {
+                console.log(json)
+                fourthSprite.src = json.sprites.front_default
+                fourthSprite.alt = json.name
+            })
+    }
+    if (pokemonTeam[4]) {
+        var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + pokemonTeam[4];
+        console.log(pokemonAPI)
+        fetch(pokemonAPI)
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(json) {
+                console.log(json)
+                fifthSprite.src = json.sprites.front_default
+                fifthSprite.alt = json.name
+            })
+    }
+    if (pokemonTeam[5]) {
+        var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + pokemonTeam[5];
+        console.log(pokemonAPI)
+        fetch(pokemonAPI)
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(json) {
+                console.log(json)
+                sixthSprite.src = json.sprites.front_default
+                sixthSprite.alt = json.name
+            })
+    }
+
+}
 
 
 
@@ -163,7 +283,9 @@ function pokemonFlex() {
 
 
 
-// missigno easter egg code
+// *missigno easter egg code*
+// *add a pokemon music library while user is working on the quiz*
+// *if third party music api is working and running then let's challenege ourselves to incrporate spotify api*
 
 //add pokemon music library while user is working on the quiz*
 

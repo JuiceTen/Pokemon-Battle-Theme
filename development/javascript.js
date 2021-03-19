@@ -14,20 +14,20 @@ console.log(beachClass)
 console.log(toughClass)
 console.log(flexClass)
 
-var abilityTough=[]
-var abilityFlex=[]
-var abilityBeach=[]
-var abilityCold=[]
+var abilityTough = []
+var abilityFlex = []
+var abilityBeach = []
+var abilityCold = []
 var pokemonTeam = []
 var uniquePokemon = []
 
 console.log(startButton)
-startButton.addEventListener("click", startGame)
-function startGame () {
-    document.getElementById("bodybackground").style.backgroundImage="none"
-    document.getElementById("start-screen").style.display="none"
-    document.getElementById("quiz-screen").style.display="block"
-}
+
+// console.log(startButton)
+// startButton.addEventListener("click", startGame)
+// fucntion startGame () {
+
+// }
 
 // add the loading / status bar when user submits the final question
 
@@ -42,29 +42,37 @@ function startGame () {
 
 //pokemon result screen
 // fetch from pokemon api
-        // fetch pokemon name
-        // fetch sprite if available
-        // the pokemon description
-        // stats
-        //fetch all pokemon data
+// fetch pokemon name
+// fetch sprite if available
+// the pokemon description
+// stats
+//fetch all pokemon data
 //TO DO
 startButton.addEventListener('click', startGame)
 function startGame() {
+    document.getElementById("bodybackground").style.backgroundImage = "none"
+    document.getElementById("start-screen").style.display = "none"
+    document.getElementById("quiz-screen").style.display = "block"
     document.querySelector("#start-screen").setAttribute("class", "hide")
     displayQuestion()
 }
-var count=0;
-var hide=0
+var count = 0;
+var hide = 0
 console.log(quizScreen.children[1])
 
-console.log(        quizScreen.children[count-1])
+
+var timer;
 function displayQuestion() {
 
-    if (count == 6){
-        count=0
+    if (count === 6) {
+
         quizScreen.children[5].setAttribute('class', 'hide')
-    } else if (count < 7) {
-        
+        document.querySelector('.loading').style.display = "block"
+        count = 0
+
+    } else if (count < 6) {
+
+
         quizScreen.children[count].removeAttribute('class', 'hide')
         count++
     }
@@ -73,11 +81,27 @@ function displayQuestion() {
         quizScreen.children[hide].setAttribute("class", "hide")
         hide++
     }
-    console.log(hide)
-
-
-    
+    // console.log(hide)   
     console.log(count)
+}
+
+
+
+function hideLoad() {
+    timer = 5
+    timerID = setInterval(function () {
+        timer--
+        if (timer === 0) {
+            document.querySelector(".loading").style.display = "none"
+            document.querySelector('#results').removeAttribute("class", "hide")
+            clearInterval(timerID)
+        }
+
+    }, 1000);
+    console.log(timer)
+
+
+
 }
 
 
@@ -115,9 +139,9 @@ function pokemonFetch() {
 pokemonFetch();
 
 function getGif() {
-    
+
     var firstPoke = pokemonTeam[0]
-    var giphyApiUrl = "https://api.giphy.com/v1/gifs/search?api_key=" + giphyApiKey + "&limit=1"  + "&q=" + "pokemon:" + firstPoke ;
+    var giphyApiUrl = "https://api.giphy.com/v1/gifs/search?api_key=" + giphyApiKey + "&limit=1" + "&q=" + "pokemon:" + firstPoke;
 
     // console.log(giphyApiUrl)
     // console.log(pokemonTeam)
@@ -125,17 +149,17 @@ function getGif() {
     // console.log(firstPoke)
 
     fetch(giphyApiUrl)
-        .then(function(response) {
+        .then(function (response) {
             return response.json()
-        }) 
-        .then(function(json) {
+        })
+        .then(function (json) {
             console.log(json)
             gifImage.src = json.data[0].images.downsized.url;
             gifImage.alt = json.data[0].title;
             console.log(gifImage.alt)
             console.log(gifImage.src)
         })
-    
+
 }
 
 
@@ -153,24 +177,22 @@ var fourthPokeName = document.querySelector(".fourth-pokemon-name")
 var fifthPokeName = document.querySelector(".fifth-pokemon-name")
 var sixthPokeName = document.querySelector(".sixth-pokemon-name")
 
-
-
-
 function getSprites() {
-    document.getElementById("results").style.display="block"
-    document.getElementById("quiz-screen").style.display="none"
+    document.getElementById("results").style.display = "block"
+    document.getElementById("quiz-screen").style.display = "none"
 
 
-    // TODO hide quiz
+    document.getElementById("results").style.display = "block"
+    document.getElementById("quiz-screen").style.display = "none"
 
     if (uniquePokemon[0]) {
         var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + uniquePokemon[0];
         console.log(pokemonAPI)
         fetch(pokemonAPI)
-            .then(function(response) {
+            .then(function (response) {
                 return response.json()
             })
-            .then(function(json) {
+            .then(function (json) {
                 console.log(json)
                 firstSprite.src = json.sprites.front_default
                 firstSprite.alt = json.name
@@ -182,10 +204,10 @@ function getSprites() {
         var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + uniquePokemon[1];
         console.log(pokemonAPI)
         fetch(pokemonAPI)
-            .then(function(response) {
+            .then(function (response) {
                 return response.json()
             })
-            .then(function(json) {
+            .then(function (json) {
                 console.log(json)
                 secondSprite.src = json.sprites.front_default
                 secondSprite.alt = json.name
@@ -196,10 +218,10 @@ function getSprites() {
         var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + uniquePokemon[2];
         console.log(pokemonAPI)
         fetch(pokemonAPI)
-            .then(function(response) {
+            .then(function (response) {
                 return response.json()
             })
-            .then(function(json) {
+            .then(function (json) {
                 console.log(json)
                 thirdSprite.src = json.sprites.front_default
                 thirdSprite.alt = json.name
@@ -210,10 +232,10 @@ function getSprites() {
         var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + uniquePokemon[3];
         console.log(pokemonAPI)
         fetch(pokemonAPI)
-            .then(function(response) {
+            .then(function (response) {
                 return response.json()
             })
-            .then(function(json) {
+            .then(function (json) {
                 console.log(json)
                 fourthSprite.src = json.sprites.front_default
                 fourthSprite.alt = json.name
@@ -224,10 +246,10 @@ function getSprites() {
         var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + uniquePokemon[4];
         console.log(pokemonAPI)
         fetch(pokemonAPI)
-            .then(function(response) {
+            .then(function (response) {
                 return response.json()
             })
-            .then(function(json) {
+            .then(function (json) {
                 console.log(json)
                 fifthSprite.src = json.sprites.front_default
                 fifthSprite.alt = json.name
@@ -238,10 +260,10 @@ function getSprites() {
         var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + uniquePokemon[5];
         console.log(pokemonAPI)
         fetch(pokemonAPI)
-            .then(function(response) {
+            .then(function (response) {
                 return response.json()
             })
-            .then(function(json) {
+            .then(function (json) {
                 console.log(json)
                 sixthSprite.src = json.sprites.front_default
                 sixthSprite.alt = json.name
@@ -251,7 +273,7 @@ function getSprites() {
 }
 
 function pokemonBeach() {
-    var randomBeach = Math.floor(Math.random() * abilityBeach.length -1)
+    var randomBeach = Math.floor(Math.random() * abilityBeach.length - 1)
     pokemonTeam.push(abilityBeach[randomBeach])
     // debugger
     // if (uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1])) {
@@ -263,63 +285,72 @@ function pokemonBeach() {
     //     console.log('pokemon2')
     //     pokemonBeach()
     // }
-    
-    
+
+
 
     // pokemonTeam.forEach((c)=> {
-        if((uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1]))||((typeof(pokemonTeam[pokemonTeam.length-1]) === "undefined"))) {
-            pokemonBeach()
-        } else {
 
-            uniquePokemon.push(pokemonTeam[pokemonTeam.length-1])
-        }
-        
- 
+    if ((uniquePokemon.includes(pokemonTeam[pokemonTeam.length - 1])) || ((typeof (pokemonTeam[pokemonTeam.length - 1]) === "undefined"))) {
+        pokemonBeach();
+    } else {
+
+        uniquePokemon.push(pokemonTeam[pokemonTeam.length - 1])
+        displayQuestion()
+    }
+
     // })
-    displayQuestion()
+
     console.log(pokemonTeam)
     console.log(uniquePokemon)
 }
 function pokemonCold() {
-    var randomCold = Math.floor(Math.random() * abilityCold.length -1)
+    var randomCold = Math.floor(Math.random() * abilityCold.length - 1)
     pokemonTeam.push(abilityCold[randomCold])
 
-    if((uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1]))||((typeof(pokemonTeam[pokemonTeam.length-1]) === "undefined"))) {
+    if ((uniquePokemon.includes(pokemonTeam[pokemonTeam.length - 1])) || ((typeof (pokemonTeam[pokemonTeam.length - 1]) === "undefined"))) {
         pokemonCold()
     } else {
 
-        uniquePokemon.push(pokemonTeam[pokemonTeam.length-1])
+
+        uniquePokemon.push(pokemonTeam[pokemonTeam.length - 1])
+        displayQuestion()
+
     }
-    displayQuestion()
     console.log(pokemonTeam)
     console.log(uniquePokemon)
 }
 
 function pokemonTough() {
-    var randomTough = Math.floor(Math.random() * abilityTough.length -1)
+    var randomTough = Math.floor(Math.random() * abilityTough.length - 1)
     pokemonTeam.push(abilityTough[randomTough])
-    if((uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1]))||((typeof(pokemonTeam[pokemonTeam.length-1]) === "undefined"))) {
+    if ((uniquePokemon.includes(pokemonTeam[pokemonTeam.length - 1])) || ((typeof (pokemonTeam[pokemonTeam.length - 1]) === "undefined"))) {
         pokemonTough()
     } else {
 
-        uniquePokemon.push(pokemonTeam[pokemonTeam.length-1])
+
+        uniquePokemon.push(pokemonTeam[pokemonTeam.length - 1])
+        displayQuestion()
+
     }
-    displayQuestion()
+
     console.log(uniquePokemon)
 }
 function pokemonFlex() {
-    var randomFlex = Math.floor(Math.random() * abilityFlex.length -1)
+    var randomFlex = Math.floor(Math.random() * abilityFlex.length - 1)
     pokemonTeam.push(abilityFlex[randomFlex])
-  
-    if((uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1]))||((typeof(pokemonTeam[pokemonTeam.length-1]) === "undefined"))) {
+
+    if ((uniquePokemon.includes(pokemonTeam[pokemonTeam.length - 1])) || ((typeof (pokemonTeam[pokemonTeam.length - 1]) === "undefined"))) {
         pokemonFlex()
     } else {
 
-        uniquePokemon.push(pokemonTeam[pokemonTeam.length-1])
+
+        uniquePokemon.push(pokemonTeam[pokemonTeam.length - 1])
+        displayQuestion()
+
     }
     console.log(uniquePokemon)
     console.log(pokemonTeam)
-    displayQuestion()
+
 }
 
 

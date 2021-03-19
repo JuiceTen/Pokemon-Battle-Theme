@@ -17,31 +17,56 @@
     <section id="quiz-screen" class=" center">
         <div id="first-question">
             <h3>Are you more laid back or active?</h3>
-            <button class="tough" onclick="pokemonTough()">Active</button>
-            <button class="flex" onclick="pokemonFlex()">Laid Back</button>
+            <button class="tough" onclick="pokemonTough();">Active</button>
+            <button class="flex" onclick="pokemonFlex();">Laid Back</button>
+        </div>
+        <div class="quiz-questions hide">
+            <h3>Do you prefer ballet or football?</h3>
+            <button class="flex" onclick="pokemonFlex()">Ballet</button>
+            <button class="tough" onclick="pokemonTough()">Football</button>
+        </div>  
+        <div class="quiz-questions hide">
+            <h3>Do you like warm or cold?</h3>
+            <button class="beach" onclick="pokemonBeach()">Warm</button>
+            <button class="cold" onclick="pokemonCold()">Cold</button>
         </div>
 
-        <h3>Do you prefer ballet or football?</h3>
-        <button class="flex" onclick="pokemonFlex()">Ballet</button>
-        <button class="tough" onclick="pokemonTough()">Football</button>
+        <div class="quiz-questions hide">
+            <h3>Do you prefer the beach, space, mountains or the clouds?</h3>
+            <button class="beach" onclick="pokemonBeach()">Beach</button>
+            <button class="cold" onclick="pokemonCold()">Space</button>
+            <button class="beach" onclick="pokemonBeach()">Mountains</button>
+            <button class="cold" onclick="pokemonCold()">Clouds</button>
+        </div>
 
-    
-        <h3>Do you like warm or cold?</h3>
-        <button class="beach" onclick="pokemonBeach()">Warm</button>
-        <button class="cold" onclick="pokemonCold()">Cold</button>
+        <div class="quiz-questions hide">
+            <h3>Which of the following Pokemon do you relate to?</h3>
+            <button class="beach" onclick="pokemonTough()">Snorlax</button>
+            <button class="cold" onclick="pokemonFlex()">Jigglypuff</button>
+            <button class="beach" onclick="pokemonBeach()">Pikachu</button>
+            <button class="cold" onclick="pokemonCold()">Magikarp</button>
+        </div>
 
-        <h3>Do you prefer the beach, space, mountains or the clouds?</h3>
-        <button class="beach" onclick="pokemonBeach()">Beach</button>
-        <button class="cold" onclick="pokemonCold()">Space</button>
-        <button class="beach" onclick="pokemonBeach()">Mountains</button>
-        <button class="cold" onclick="pokemonCold()">Clouds</button>
-
-        <h3>do you prefer action movies or drama movies?</h3>
-        <button class="tough" onclick="pokemonTough();getGif();getSprites()">Action moves</button>
-        <button class="flex" onclick="pokemonFlex();getGif();getSprites()">Drama Movies</button>
+        <div class="quiz-questions hide">
+            <h3>do you prefer action movies or drama movies?</h3>
+            <button class="tough" onclick="pokemonTough();getGif();getSprites();hideLoad()">Action moves</button>
+            <button class="flex" onclick="pokemonFlex();getGif();getSprites();hideLoad()">Drama Movies</button>
+        </div>
     </section>
 
-    <section id="results" class=" center">
+
+    <section class="loading hide">
+   
+   
+            <div class="insert-gif">
+                <img src="" alt="" class="moving-gif loader">
+            </div>
+        </br>
+            <p id="time">"Your pokemon team is being generated, Please enjoy this GIF.</p>
+
+    </section>
+
+    <section id="results" class="quiz-questions center hide">
         <!-- background image -->
         <h3>Your Pokemon Team</h3>
         <div>

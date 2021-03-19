@@ -11,6 +11,10 @@ body {
 
 .moving-gif {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
+
+/* .segment {
+    margin: 0 auto;
+    width: 70%;
+} */

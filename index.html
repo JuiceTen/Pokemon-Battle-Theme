@@ -51,25 +51,22 @@
 
         <div class="quiz-questions hide">
             <h3>do you prefer action movies or drama movies?</h3>
-            <button class="tough" onclick="pokemonTough();getGif();getSprites()">Action moves</button>
-            <button class="flex" onclick="pokemonFlex();getGif();getSprites()">Drama Movies</button>
+            <button class="tough" onclick="pokemonTough();getGif();getSprites();hideLoad()">Action moves</button>
+            <button class="flex" onclick="pokemonFlex();getGif();getSprites();hideLoad()">Drama Movies</button>
         </div>
     </section>
 
-    <section class="loading">
-    
-        <!-- <div class="ui active inverted dimmer">
-          <div class="ui text loader">Loading -->
+    <section class="loading hide">
+   
+   
             <div class="insert-gif">
                 <img src="" alt="" class="moving-gif loader">
-            <!-- </div>
-          </div>
-        </div>
-        <p></p> -->
-
+            </div>
+        </br>
+            <p id="time">"Your pokemon team is being generated, Please enjoy this GIF.</p>
     </section>
 
-    <section id="results" class="quiz-questions center">
+    <section id="results" class="quiz-questions center hide">
         <!-- background image -->
         <h3>Your Pokemon Team</h3>
         <div class="team-results">

@@ -55,13 +55,16 @@ var count=0;
 var hide=0
 console.log(quizScreen.children[1])
 
-console.log(        quizScreen.children[count-1])
+var timer;
 function displayQuestion() {
 
-    if (count == 6){
-        count=0
+    if (count === 6){
+        
         quizScreen.children[5].setAttribute('class', 'hide')
-    } else if (count < 7) {
+        document.querySelector('.loading').style.display="block"
+        count=0
+        
+    } else if (count < 6) {
         
         quizScreen.children[count].removeAttribute('class', 'hide')
         count++
@@ -71,11 +74,25 @@ function displayQuestion() {
         quizScreen.children[hide].setAttribute("class", "hide")
         hide++
     }
-    console.log(hide)
-
-
-    
+    // console.log(hide)   
     console.log(count)
+}
+
+
+function hideLoad() {
+    timer=5
+    timerID = setInterval(function() {
+        timer--
+        if (timer === 0) {
+            document.querySelector(".loading").style.display="none"
+            document.querySelector('#results').removeAttribute("class", "hide")
+            clearInterval(timerID)
+        }
+           
+    }, 1000);
+    console.log(timer)
+ 
+    
 }
 
 
@@ -263,7 +280,7 @@ function pokemonBeach() {
 
     // pokemonTeam.forEach((c)=> {
         if((uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1]))||((typeof(pokemonTeam[pokemonTeam.length-1]) === "undefined"))) {
-            pokemonBeach()
+            pokemonBeach();
         } else {
 
             uniquePokemon.push(pokemonTeam[pokemonTeam.length-1])
@@ -284,8 +301,8 @@ function pokemonCold() {
     } else {
 
         uniquePokemon.push(pokemonTeam[pokemonTeam.length-1])
+        displayQuestion()
     }
-    displayQuestion()
     console.log(pokemonTeam)
     console.log(uniquePokemon)
 }
@@ -298,8 +315,9 @@ function pokemonTough() {
     } else {
 
         uniquePokemon.push(pokemonTeam[pokemonTeam.length-1])
+        displayQuestion()
     }
-    displayQuestion()
+
     console.log(uniquePokemon)
 }
 function pokemonFlex() {
@@ -311,10 +329,11 @@ function pokemonFlex() {
     } else {
 
         uniquePokemon.push(pokemonTeam[pokemonTeam.length-1])
+        displayQuestion()
     }
     console.log(uniquePokemon)
     console.log(pokemonTeam)
-    displayQuestion()
+
 }
 
 

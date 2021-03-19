@@ -21,11 +21,13 @@ var abilityCold=[]
 var pokemonTeam = []
 var uniquePokemon = []
 
-// console.log(startButton)
-// startButton.addEventListener("click", startGame)
-// fucntion startGame () {
-
-// }
+console.log(startButton)
+startButton.addEventListener("click", startGame)
+function startGame () {
+    document.getElementById("bodybackground").style.backgroundImage="none"
+    document.getElementById("start-screen").style.display="none"
+    document.getElementById("quiz-screen").style.display="block"
+}
 
 // add the loading / status bar when user submits the final question
 
@@ -40,18 +42,6 @@ var uniquePokemon = []
 
 //pokemon result screen
 // fetch from pokemon api
-<<<<<<< HEAD
-// fetch pokemon name
-// fetch sprite if available
-// the pokemon description
-// stats
-//fetch all pokemon data
-var abilityTough = []
-var abilityFlex = []
-var abilityBeach = []
-var abilityCold = []
-var pokemonTeam = []
-=======
         // fetch pokemon name
         // fetch sprite if available
         // the pokemon description
@@ -90,7 +80,6 @@ function displayQuestion() {
     console.log(count)
 }
 
->>>>>>> bdfebacb18ed86fb460ca795072aa34492e284be
 
 
 // refactor ability sorter
@@ -115,11 +104,6 @@ function pokemonFetch() {
                 if ((data?.abilities[0]?.ability?.name === "damp") || (data?.abilities[1]?.ability?.name === "damp") || (data?.abilities[2]?.ability?.name === "damp") || (data?.abilities[0]?.ability?.name === "drizzle") || (data?.abilities[1]?.ability?.name === "drizzle") || (data?.abilities[2]?.ability?.name === "drizzle") || (data?.abilities[0]?.ability?.name === "ice-body") || (data?.abilities[1]?.ability?.name === "ice-body") || (data?.abilities[2]?.ability?.name === "ice-body") || (data?.abilities[0]?.ability?.name === "rain-dish") || (data?.abilities[1]?.ability?.name === "rain-dish") || (data?.abilities[2]?.ability?.name === "rain-dish") || (data?.abilities[0]?.ability?.name === "liquid-ooze") || (data?.abilities[1]?.ability?.name === "liquid-ooze") || (data?.abilities[2]?.ability?.name === "liquid-ooze") || (data?.abilities[0]?.ability?.name === "swift-swim") || (data?.abilities[1]?.ability?.name === "swift-swim") || (data?.abilities[2]?.ability?.name === "swift-swim") || (data?.abilities[0]?.ability?.name === "rain-dish") || (data?.abilities[1]?.ability?.name === "rain-dish") || (data?.abilities[2]?.ability?.name === "rain-dish") || (data?.abilities[0]?.ability?.name === "shell-armor") || (data?.abilities[1]?.ability?.name === "shell-armor") || (data?.abilities[2]?.ability?.name === "shell-armor") || (data?.abilities[0]?.ability?.name === "water-veil") || (data?.abilities[1]?.ability?.name === "water-veil") || (data?.abilities[2]?.ability?.name === "water-veil") || (data?.abilities[0]?.ability?.name === "lightning-rod") || (data?.abilities[1]?.ability?.name === "lightning-rod") || (data?.abilities[2]?.ability?.name === "lightning-rod") || (data?.abilities[0]?.ability?.name === "static") || (data?.abilities[1]?.ability?.name === "static") || (data?.abilities[2]?.ability?.name === "static") || (data?.abilities[0]?.ability?.name === "weak-armor") || (data?.abilities[1]?.ability?.name === "weak-armor") || (data?.abilities[2]?.ability?.name === "weak-armor") || (data?.abilities[0]?.ability?.name === "magnet-pull") || (data?.abilities[1]?.ability?.name === "magnet-pull") || (data?.abilities[2]?.ability?.name === "magnet-pull") || (data?.abilities[0]?.ability?.name === "water-absorb") || (data?.abilities[1]?.ability?.name === "water-absorb") || (data?.abilities[2]?.ability?.name === "water-absorb") || (data?.abilities[0]?.ability?.name === "volt-absorb") || (data?.abilities[1]?.ability?.name === "volt-absorb") || (data?.abilities[2]?.ability?.name === "volt-absorb") || (data?.abilities[0]?.ability?.name === "hydration") || (data?.abilities[1]?.ability?.name === "hydration") || (data?.abilities[2]?.ability?.name === "hydration") || (data?.abilities[0]?.ability?.name === "levitate") || (data?.abilities[1]?.ability?.name === "levitate") || (data?.abilities[2]?.ability?.name === "levitate")) {
                     abilityCold.push(data.name)
                 }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> bdfebacb18ed86fb460ca795072aa34492e284be
             })
     }
     console.log(abilityTough)
@@ -130,26 +114,6 @@ function pokemonFetch() {
 
 pokemonFetch();
 
-<<<<<<< HEAD
-
-function pokemonRandom() {
-    var exist = false
-
-    if (coldClass) {
-        var randomCold = Math.floor(Math.random() * abilityCold.length - 1)
-        pokemonTeam.push(abilityCold[randomCold])
-    } else if (beachClass) {
-        var randomBeach = Math.floor(Math.random() * abilityBeach.length - 1)
-        pokemonTeam.push(abilityCold[randomBeach])
-    } else if (toughClass) {
-        var randomTough = Math.floor(Math.random() * abilityTough.length - 1)
-        pokemonTeam.push(abilityCold[randomTough])
-    } else if (flexClass) {
-        var randomFlex = Math.floor(Math.random() * abilityFlex.length - 1)
-        pokemonTeam.push(abilityCold[randomFlex])
-    }
-    console.log(pokemonTeam)
-=======
 function getGif() {
     
     var firstPoke = pokemonTeam[0]
@@ -172,7 +136,6 @@ function getGif() {
             console.log(gifImage.src)
         })
     
->>>>>>> bdfebacb18ed86fb460ca795072aa34492e284be
 }
 
 
@@ -183,42 +146,20 @@ var fourthSprite = document.querySelector(".fourth-poke")
 var fifthSprite = document.querySelector(".fifth-poke")
 var sixthSprite = document.querySelector(".sixth-poke")
 
-<<<<<<< HEAD
-var apiKey = 'qZ11dO1PPP2buhmpsXT7xkTo807NnEmD'
-var giphyAPI = 'https://api.giphy.com/v1/gifs/search?q=pokemon&api_key=' + apiKey;
-
-function getGif() {
-
-    fetch(giphyAPI)
-        .then(function(response) {
-            return response.json()
-        })
-        .then(function(data){
-            
-
-        })
-        
-}
-getGif();
-
-console.log(giphyAPI)
-
-
-    // fetch from music api
-        // fetch music
-=======
 var firstPokeName = document.querySelector(".first-pokemon-name")
 var secondPokeName = document.querySelector(".second-pokemon-name")
 var thirdPokeName = document.querySelector(".third-pokemon-name")
 var fourthPokeName = document.querySelector(".fourth-pokemon-name")
 var fifthPokeName = document.querySelector(".fifth-pokemon-name")
 var sixthPokeName = document.querySelector(".sixth-pokemon-name")
->>>>>>> bdfebacb18ed86fb460ca795072aa34492e284be
 
 
 
 
 function getSprites() {
+    document.getElementById("results").style.display="block"
+    document.getElementById("quiz-screen").style.display="none"
+
 
     // TODO hide quiz
 

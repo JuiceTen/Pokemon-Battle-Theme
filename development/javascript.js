@@ -94,12 +94,11 @@ function hideLoad() {
         if (timer === 0) {
             document.querySelector(".loading").style.display="none"
             document.querySelector('#results').removeAttribute("class", "hide")
+            document.querySelector('#bodybackground').style.backgroundImage = "url('https://cdn.vox-cdn.com/thumbor/e4KRzS--UsuixA2G8TOCwJ-O024=/1400x1050/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/6839749/pokemon.0.png')"
             clearInterval(timerID)
         }
-           
     }, 1000);
     console.log(timer)
- 
     
 
 }
@@ -178,9 +177,6 @@ var fifthPokeName = document.querySelector(".fifth-pokemon-name")
 var sixthPokeName = document.querySelector(".sixth-pokemon-name")
 
 function getSprites() {
-
-    document.getElementById("results").style.display = "block"
-    document.getElementById("quiz-screen").style.display = "none"
 
     if (uniquePokemon[0]) {
         var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + uniquePokemon[0];

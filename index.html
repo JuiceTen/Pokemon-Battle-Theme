@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <link rel="stylesheet" href="./development/style.css">
+    
 </head>
 <body>
     <section id="start-screen" class ="center">
@@ -14,63 +16,98 @@
         <button class="start-button">Start</button>
     </section>    
     
-    <section id="quiz-screen" class=" center">
-        <div id="first-question">
+    <section id="quiz-screen" class="center">
+        <div class="quiz-questions hide">
             <h3>Are you more laid back or active?</h3>
-            <button class="tough" onclick="pokemonRandom()">Active</button>
-            <button class="flex" onclick="pokemonRandom()">Laid Back</button>
+            <button class="tough" onclick="pokemonTough();">Active</button>
+            <button class="flex" onclick="pokemonFlex();">Laid Back</button>
+        </div>
+        <div class="quiz-questions hide">
+            <h3>Do you prefer ballet or football?</h3>
+            <button class="flex" onclick="pokemonFlex()">Ballet</button>
+            <button class="tough" onclick="pokemonTough()">Football</button>
+         </div>  
+        <div class="quiz-questions hide">
+            <h3>Do you like warm or cold?</h3>
+            <button class="beach" onclick="pokemonBeach()">Warm</button>
+            <button class="cold" onclick="pokemonCold()">Cold</button>
         </div>
 
-        <h3>Do you prefer ballet or football?</h3>
-        <button class="flex" onclick="pokemonRandom()">Ballet</button>
-        <button class="tough" onclick="pokemonRandom()">Football</button>
+        <div class="quiz-questions hide">
+            <h3>Do you prefer the beach, space, mountains or the clouds?</h3>
+            <button class="beach" onclick="pokemonBeach()">Beach</button>
+            <button class="cold" onclick="pokemonCold()">Space</button>
+            <button class="beach" onclick="pokemonBeach()">Mountains</button>
+            <button class="cold" onclick="pokemonCold()">Clouds</button>
+        </div>
 
-    
-        <h3>Do you like warm or cold?</h3>
-        <button class="beach" onclick="pokemonRandom()">Warm</button>
-        <button class="cold" onclick="pokemonRandom()">Cold</button>
+        <div class="quiz-questions hide">
+            <h3>Which of the following Pokemon do you relate to?</h3>
+            <button class="beach" onclick="pokemonTough()">Snorlax</button>
+            <button class="cold" onclick="pokemonFlex()">Jigglypuff</button>
+            <button class="beach" onclick="pokemonBeach()">Pikachu</button>
+            <button class="cold" onclick="pokemonCold()">Magikarp</button>
+        </div>
 
-        <h3>Do you prefer the beach, space, mountains or the clouds?</h3>
-        <button class="beach" onclick="pokemonRandom()">Beach</button>
-        <button class="cold" onclick="pokemonRandom()">Space</button>
-        <button class="beach" onclick="pokemonRandom()">Mountains</button>
-        <button class="cold" onclick="pokemonRandom()">Clouds</button>
-
-        <h3>do you prefer action movies or drama movies?</h3>
-        <button class="tough" onclick="pokemonRandom()">Action moves</button>
-        <button class="flex" onclick="pokemonRandom()">Drama Movies</button>
+        <div class="quiz-questions hide">
+            <h3>do you prefer action movies or drama movies?</h3>
+            <button class="tough" onclick="pokemonTough();getGif();getSprites()">Action moves</button>
+            <button class="flex" onclick="pokemonFlex();getGif();getSprites()">Drama Movies</button>
+        </div>
     </section>
 
-    <section id="results" class=" center">
+    <section class="loading">
+    
+        <!-- <div class="ui active inverted dimmer">
+          <div class="ui text loader">Loading -->
+            <div class="insert-gif">
+                <img src="" alt="" class="moving-gif loader">
+            <!-- </div>
+          </div>
+        </div>
+        <p></p> -->
+
+    </section>
+
+    <section id="results" class="quiz-questions center">
         <!-- background image -->
         <h3>Your Pokemon Team</h3>
-        <div>
-            <!-- img/pokemon sprite api -->
-            <p class = "pokemon-name"></p>
-        </div>
-        <div>
-            <!-- img/pokemon sprite api -->
-            <p class = "pokemon-name"></p>
-        </div>
-        <div>
-            <!-- img/pokemon sprite api -->
-            <p class = "pokemon-name"></p>
-        </div>
-        <div>
-            <!-- img/pokemon sprite api -->
-            <p class = "pokemon-name"></p>
-        </div>
-        <div>
-            <!-- img/pokemon sprite api -->
-            <p class = "pokemon-name"></p>
-        </div>
-        <div>
-            <!-- img/pokemon sprite api -->
-            <p class = "pokemon-name"></p>
+        <div class="team-results">
+
+            <div>
+                <img src="" alt="" class="first-poke result-poke">
+                <p class = "first-pokemon-name pokemon-name"></p>
+            </div>
+
+            <div>
+                <img src="" alt="" class="second-poke result-poke">
+                <p class = "second-pokemon-name pokemon-name"></p>
+            </div>
+
+            <div>
+                <img src="" alt="" class="third-poke result-poke">
+                <p class = "third-pokemon-name pokemon-name"></p>
+            </div>
+
+            <div>
+                <img src="" alt="" class="fourth-poke result-poke">
+                <p class = "fourth-pokemon-name pokemon-name"></p>
+            </div>
+
+            <div>
+                <img src="" alt="" class="fifth-poke result-poke">
+                <p class = "fifth-pokemon-name pokemon-name"></p>
+            </div>
+
+            <div>
+                <img src="" alt="" class="sixth-poke result-poke">
+                <p class = "sixth-pokemon-name pokemon-name"></p>
+            </div>
+
         </div>
     </section>
 
-    <footer>music player placeholder</footer>
+
     <script src="./development/javascript.js"></script>
 
 </body>

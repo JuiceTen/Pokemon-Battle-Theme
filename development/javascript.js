@@ -248,7 +248,6 @@ function getSprites() {
     }
 }
 
-
 function pokemonBeach() {
     var randomBeach = Math.floor(Math.random() * abilityBeach.length - 1)
     pokemonTeam.push(abilityBeach[randomBeach])

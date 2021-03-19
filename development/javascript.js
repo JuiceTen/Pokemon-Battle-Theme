@@ -144,6 +144,16 @@ var fourthSprite = document.querySelector(".fourth-poke")
 var fifthSprite = document.querySelector(".fifth-poke")
 var sixthSprite = document.querySelector(".sixth-poke")
 
+var firstPokeName = document.querySelector(".first-pokemon-name")
+var secondPokeName = document.querySelector(".second-pokemon-name")
+var thirdPokeName = document.querySelector(".third-pokemon-name")
+var fourthPokeName = document.querySelector(".fourth-pokemon-name")
+var fifthPokeName = document.querySelector(".fifth-pokemon-name")
+var sixthPokeName = document.querySelector(".sixth-pokemon-name")
+
+
+
+
 function getSprites() {
 
     // TODO hide quiz
@@ -159,6 +169,8 @@ function getSprites() {
                 console.log(json)
                 firstSprite.src = json.sprites.front_default
                 firstSprite.alt = json.name
+                firstPokeName.textContent = json.name
+                console.log(json)
             })
     }
     if (uniquePokemon[1]) {
@@ -172,6 +184,7 @@ function getSprites() {
                 console.log(json)
                 secondSprite.src = json.sprites.front_default
                 secondSprite.alt = json.name
+                secondPokeName.textContent = json.name
             })
     }
     if (uniquePokemon[2]) {
@@ -185,6 +198,7 @@ function getSprites() {
                 console.log(json)
                 thirdSprite.src = json.sprites.front_default
                 thirdSprite.alt = json.name
+                thirdPokeName.textContent = json.name
             })
     }
     if (uniquePokemon[3]) {
@@ -198,6 +212,7 @@ function getSprites() {
                 console.log(json)
                 fourthSprite.src = json.sprites.front_default
                 fourthSprite.alt = json.name
+                fourthPokeName.textContent = json.name
             })
     }
     if (uniquePokemon[4]) {
@@ -211,6 +226,7 @@ function getSprites() {
                 console.log(json)
                 fifthSprite.src = json.sprites.front_default
                 fifthSprite.alt = json.name
+                fifthPokeName.textContent = json.name
             })
     }
     if (uniquePokemon[5]) {
@@ -224,11 +240,10 @@ function getSprites() {
                 console.log(json)
                 sixthSprite.src = json.sprites.front_default
                 sixthSprite.alt = json.name
+                sixthPokeName.textContent = json.name
             })
     }
-
 }
-
 
 function pokemonBeach() {
     var randomBeach = Math.floor(Math.random() * abilityBeach.length -1)

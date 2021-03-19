@@ -20,6 +20,14 @@ var abilityCold=[]
 var pokemonTeam = []
 var uniquePokemon = []
 
+console.log(startButton)
+startButton.addEventListener("click", startGame)
+function startGame () {
+    document.getElementById("bodybackground").style.backgroundImage="none"
+    document.getElementById("start-screen").style.display="none"
+    document.getElementById("quiz-screen").style.display="block"
+}
+
 // console.log(startButton)
 // startButton.addEventListener("click", startGame)
 // fucntion startGame () {
@@ -116,12 +124,10 @@ var fourthPokeName = document.querySelector(".fourth-pokemon-name")
 var fifthPokeName = document.querySelector(".fifth-pokemon-name")
 var sixthPokeName = document.querySelector(".sixth-pokemon-name")
 
-
-
-
 function getSprites() {
 
-    // TODO hide quiz
+    document.getElementById("results").style.display="block"
+    document.getElementById("quiz-screen").style.display="none"
 
     if (uniquePokemon[0]) {
         var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + uniquePokemon[0];

@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="./development/style.css">
     
 </head>
-<body>
+<body id="bodybackground">
     <section id="start-screen" class ="center">
-        <h2>PokeTunes</h2>
+        <h2><img src="./assets/poketeams logo.png" alt="PokeTeams logo"></h2>
         <p>Press the button below to find out your perfect Pokemon Team</p>
         <button class="start-button">Start</button>
     </section>    
@@ -26,7 +26,7 @@
             <h3>Do you prefer ballet or football?</h3>
             <button class="flex" onclick="pokemonFlex()">Ballet</button>
             <button class="tough" onclick="pokemonTough()">Football</button>
-         </div>  
+        </div>  
         <div class="quiz-questions hide">
             <h3>Do you like warm or cold?</h3>
             <button class="beach" onclick="pokemonBeach()">Warm</button>
@@ -56,6 +56,7 @@
         </div>
     </section>
 
+
     <section class="loading hide">
    
    
@@ -64,6 +65,7 @@
             </div>
         </br>
             <p id="time">"Your pokemon team is being generated, Please enjoy this GIF.</p>
+
     </section>
 
     <section id="results" class="quiz-questions center hide">

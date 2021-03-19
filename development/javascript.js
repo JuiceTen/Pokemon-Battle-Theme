@@ -71,9 +71,9 @@ function displayQuestion() {
         count = 0
 
     } else if (count < 6) {
-
-
+        
         quizScreen.children[count].removeAttribute('class', 'hide')
+        document.querySelector('#bodybackground').style.backgroundImage = "url('https://cdn.vox-cdn.com/thumbor/e4KRzS--UsuixA2G8TOCwJ-O024=/1400x1050/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/6839749/pokemon.0.png')"
         count++
     }
 
@@ -88,19 +88,19 @@ function displayQuestion() {
 
 
 function hideLoad() {
-    timer = 5
-    timerID = setInterval(function () {
+    timer=5
+    document.querySelector("#quiz-screen").style = "display: hide"
+    timerID = setInterval(function() {
         timer--
         if (timer === 0) {
             document.querySelector(".loading").style.display = "none"
             document.querySelector('#results').removeAttribute("class", "hide")
+            document.querySelector('#bodybackground').style.backgroundImage = "url('https://cdn.vox-cdn.com/thumbor/e4KRzS--UsuixA2G8TOCwJ-O024=/1400x1050/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/6839749/pokemon.0.png')"
             clearInterval(timerID)
         }
-
     }, 1000);
     console.log(timer)
-
-
+    
 
 }
 
@@ -181,9 +181,6 @@ function getSprites() {
     document.getElementById("results").style.display = "block"
     document.getElementById("quiz-screen").style.display = "none"
 
-
-    document.getElementById("results").style.display = "block"
-    document.getElementById("quiz-screen").style.display = "none"
 
     if (uniquePokemon[0]) {
         var pokemonAPI = "https://pokeapi.co/api/v2/pokemon/" + uniquePokemon[0];

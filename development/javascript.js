@@ -3,6 +3,7 @@ var coldClass = document.querySelectorAll(".cold")
 var beachClass = document.querySelectorAll(".beach")
 var toughClass = document.querySelectorAll(".tough")
 var flexClass = document.querySelectorAll(".flex")
+var quizScreen = document.querySelector("#quiz-screen")
 // vars for giphy fetch function
 var giphyApiKey = "tH4RZrQuamL0pNhPo7JKg8xo5vcFANzX"
 var giphyApiUrl = "https://api.giphy.com/v1/gifs/search?api_key=" + giphyApiKey + "&limit=1"
@@ -45,6 +46,40 @@ var uniquePokemon = []
         // stats
         //fetch all pokemon data
 //TO DO
+startButton.addEventListener('click', startGame)
+function startGame() {
+    document.querySelector("#start-screen").setAttribute("class", "hide")
+    displayQuestion()
+}
+var count=0;
+var hide=0
+console.log(quizScreen.children[1])
+
+console.log(        quizScreen.children[count-1])
+function displayQuestion() {
+
+    if (count == 6){
+        count=0
+        quizScreen.children[5].setAttribute('class', 'hide')
+    } else if (count < 7) {
+        
+        quizScreen.children[count].removeAttribute('class', 'hide')
+        count++
+    }
+
+    if (count > 1) {
+        quizScreen.children[hide].setAttribute("class", "hide")
+        hide++
+    }
+    console.log(hide)
+
+
+    
+    console.log(count)
+}
+
+
+
 // refactor ability sorter
 function pokemonFetch() {
     for(i=1; i <152; i++) {
@@ -210,115 +245,78 @@ function getSprites() {
     }
 }
 
-
-
-
 function pokemonBeach() {
     var randomBeach = Math.floor(Math.random() * abilityBeach.length -1)
     pokemonTeam.push(abilityBeach[randomBeach])
+    // debugger
+    // if (uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1])) {
+    //     console.log('pokemon1')
+    //     pokemonBeach()
 
-    if ((uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1]))||(pokemonTeam[pokemonTeam.length-1] === undefined)){
-        pokemonBeach()
-    }
+
+    // } else if (typeof(pokemonTeam[pokemonTeam.length-1]) === "undefined") {
+    //     console.log('pokemon2')
+    //     pokemonBeach()
+    // }
     
-    pokemonTeam.forEach((c)=> {
-        if(!uniquePokemon.includes(c)) {
-            uniquePokemon.push(c)
-        }
-        console.log(c)
-    })
+    
 
-    // pokemonTeam.push(abilityBeach[randomBeach])
+    // pokemonTeam.forEach((c)=> {
+        if((uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1]))||((typeof(pokemonTeam[pokemonTeam.length-1]) === "undefined"))) {
+            pokemonBeach()
+        } else {
+
+            uniquePokemon.push(pokemonTeam[pokemonTeam.length-1])
+        }
+        
+ 
+    // })
+    displayQuestion()
+    console.log(pokemonTeam)
     console.log(uniquePokemon)
 }
 function pokemonCold() {
     var randomCold = Math.floor(Math.random() * abilityCold.length -1)
     pokemonTeam.push(abilityCold[randomCold])
 
-    if ((uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1]))||(pokemonTeam[pokemonTeam.length-1] === undefined)){
+    if((uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1]))||((typeof(pokemonTeam[pokemonTeam.length-1]) === "undefined"))) {
         pokemonCold()
-    }
-    
-    pokemonTeam.forEach((c)=> {
-        if(!uniquePokemon.includes(c)) {
-            uniquePokemon.push(c)
-        }
-        console.log(c)
-    })
+    } else {
 
+        uniquePokemon.push(pokemonTeam[pokemonTeam.length-1])
+    }
+    displayQuestion()
+    console.log(pokemonTeam)
     console.log(uniquePokemon)
 }
 
 function pokemonTough() {
     var randomTough = Math.floor(Math.random() * abilityTough.length -1)
     pokemonTeam.push(abilityTough[randomTough])
-    if ((uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1]))||(pokemonTeam[pokemonTeam.length-1] === undefined)){
+    if((uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1]))||((typeof(pokemonTeam[pokemonTeam.length-1]) === "undefined"))) {
         pokemonTough()
-    }
-    
-    pokemonTeam.forEach((c)=> {
-        if(!uniquePokemon.includes(c)) {
-            uniquePokemon.push(c)
-        }
-        console.log(c)
-    })
+    } else {
 
+        uniquePokemon.push(pokemonTeam[pokemonTeam.length-1])
+    }
+    displayQuestion()
     console.log(uniquePokemon)
 }
 function pokemonFlex() {
     var randomFlex = Math.floor(Math.random() * abilityFlex.length -1)
     pokemonTeam.push(abilityFlex[randomFlex])
   
-    if ((uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1]))||(pokemonTeam[pokemonTeam.length-1] === undefined)){
+    if((uniquePokemon.includes(pokemonTeam[pokemonTeam.length-1]))||((typeof(pokemonTeam[pokemonTeam.length-1]) === "undefined"))) {
         pokemonFlex()
+    } else {
+
+        uniquePokemon.push(pokemonTeam[pokemonTeam.length-1])
     }
-    
-    pokemonTeam.forEach((c)=> {
-        if(!uniquePokemon.includes(c)) {
-            uniquePokemon.push(c)
-        }
-        console.log(c)
-    })
     console.log(uniquePokemon)
     console.log(pokemonTeam)
+    displayQuestion()
 }
 
-
-
-
-
-
-// fetch from music api
-        // fetch music
-
-    // var for array of pokemon team = [151]
-    // 4 different pokemon array
-
-    // array 1 = {[beach + tough/soft + warm/cod + action/drama]}
-    // example if (user.input === tough) {
-        //return 
-    // }
-
-
-    // var for array of music choices = [20] 
-
-    // precreate the teams in new vars (for example 10 predetermined teams = 10 var arrays)
-    // precreate mini arrays of music
-
-    // if team array 0 then music array 0
-
-    // create logic for responses to select team
-        // if responses to question (x5)
-        // recursive function so that user doesn't get same pokemon twice
-    // create logic for responses to select music
-        // if responses to questions (x5)
-
-
-    // add the pokemon team to the results page
-
-    // add the music to the results page
-
-// call the function to start the quiz
 
 
 
